@@ -24,10 +24,10 @@ unsigned int _strspn(char *s, char *accept)
 				break;
 		}
 
-		if  (accept[j] != s[i])
-			break;
-		else 
+		if  (accept[j] == s[i])
 			length++;
+		else
+			break;
 	}
 	return (length);
 }
