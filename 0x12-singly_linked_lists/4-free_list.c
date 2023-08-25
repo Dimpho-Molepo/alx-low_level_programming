@@ -1,23 +1,25 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 
 /**
- * *free_list - function frees a list_t list
+ * free_list - function that frees a singly linked list.
+ * @head: pointer to singly linked list.
  *
- *@head: pointer to pointer of head of linked list
+ * Return: no return.
  *
- * Return: void
  */
 void free_list(list_t *head)
 {
-	list_t *node = head;
-	list_t *temp;
+	list_t *temp_variable;
+	temp_variable = head;
 
-	while (node != NULL)
+	while (head != NULL)
 	{
-		temp = node;
-		node = node->next;
-		free(temp->str);
-		free(temp);
-		head = NULL;
+		temp_variable = head;
+		head = head->next;
+		free(temp_variable->str);
+		free(temp_variable);
 	}
+	free(head);
 }
